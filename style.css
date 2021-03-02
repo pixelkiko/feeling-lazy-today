@@ -1,0 +1,184 @@
+html, body{
+    height: 100%;
+    text-align: center;
+    font-family: "HelveticaNeue"; src: url('font/HelveticaNeue.ttc');
+
+}
+@font-face{
+    font-family: "Apple Chancery"; src: url('font/Apple-Chancery/Apple\ Chancery\ Regular.ttf');
+
+}
+.chancery{
+    font-family: "Apple Chancery";
+}
+h1{
+    font-family: "Apple Chancery";
+    /* -webkit-text-stroke: 1px black;
+    color: transparent; */
+    width: 50%;
+    font-size: 70px;
+    line-height: 100px;
+    vertical-align: middle;
+    opacity: 92%;
+
+}
+h2{
+    font-size: 26px;
+    width:70%;
+    font-weight: 20;
+
+}
+p{
+    width: 16%;
+    opacity: 85%;
+}
+
+input{
+    margin-top:10px ;
+    appearance: none;
+    width: 35%;
+    border: 0px;
+    
+    padding: 16px 12px 0 12px;
+    height: 48px;
+    font-family: "Apple Chancery";
+    font-size: 20px;
+    text-align: center;
+    
+    /* //font-weight: 500; */
+    background: none;
+    border-radius: 0;
+    color:black;
+    box-shadow: inset 0 -2px 0 ;
+}
+input:focus{
+    
+    outline: none;
+  
+}
+
+button{
+    margin-top: 20px;
+    margin-left:20px ;
+    margin-right:20px ;
+    margin-bottom:20px ;
+    height:50px;
+
+    background-color:#FAFB6D;
+    color:black;
+    padding: 12px;
+    border: 2px solid black;
+    border-radius: 50px;
+    font-size: 18px;
+    text-align: center;
+}
+button:hover{
+    background-color:black ;
+    color:#FAFB6D;
+    transition: 0.3s;
+}
+button:focus{
+    outline: none;
+}
+#shuffle-style-button，#save-poster-button{
+    margin-top: 50px;
+}
+.container{
+    display: flex;
+    height: 100%;
+  
+}
+.small-container{
+    width: 50%;
+    padding: 20px;
+    height: 100%;
+}
+.titleWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+    margin-top: 20px;
+
+}
+#intro{
+    background-color:#FAFB6D;
+    /* box-sizing: border-box; */
+    
+}
+#posterMaker{
+    background-color: #EDE8FE;
+    /* box-sizing: border-box; */
+}
+
+p{
+    
+    width: 20%;
+    margin-right: 20px;
+}
+.footer-box{
+    width:47%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0px;
+    text-align: left;
+}
+#canvasDiv{
+    margin-bottom:5px ;
+}
+span{
+    font-family: "Apple Chancery";
+}
+a{
+    color: black;
+}
+
+section{
+    position: relative;
+    width: 27px;
+    height:105vh;
+    overflow: hidden;
+}
+
+section .scroll{
+    width: 100%;
+    display: flex;
+}
+
+section .scroll div{
+    color:#FAFB6D;
+    font-size:16px;
+    background: black;
+    white-space: nowrap;
+    text-transform: uppercase;
+    animation: animate 40s linear infinite;
+    animation-delay: -40s;
+}
+section .scroll div:nth-child(2){
+    animation: animate2 40s linear infinite;
+    animation-delay: -20s;
+}
+@keyframes animate{
+    0%
+    {
+        transform:translateX(100%);
+    }
+    100%
+    {
+        transform:translateX(-100%);
+    }
+}
+@keyframes animate2{
+    0%
+    {
+        transform:translateX(0);
+    }
+    100%
+    {
+        transform:translateX(-200%);
+    }
+}
+section .scroll.text1{
+    transform:rotate(90deg);
+}

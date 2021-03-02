@@ -5,8 +5,72 @@
     <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
     <script src="p5.min.js"></script>
     <script src="sketch.js"></script>
+    <link rel="stylesheet" href="style.css">
     <style>body{margin: 0;}</style>
 </head>
 <body>
+    <div class="container">
+       
+        <div class = "small-container" id = "intro">
+            <div class= "titleWrap">
+               <h1>Feeling Lazy Today?</h1>
+               <h2>Just type in something and let your A.I. friend do the rest ツ</h2>
+            </div>
+            
+            <div class="footer-box">
+                <p id="api"><span>Feeling Lazy Today</span> is poster generator powered by A.I generated 
+                    image, using <span><a href="https://deepai.org/machine-learning-model/text2img">DeepAI API</a>
+                </span></p>
+                <p id="credits"> Project by <br><span><a href="https://www.kikochen.com/">Kiko Chen</a></span> <br>
+                Special thanks to <span>Igor Davydychev</span></p>
+                <p id="credits"> Project developed during course <span>Creative Computation for Visual Communication</span> 
+                    by <span><a href="https://www.eevirutanen.com/">Eevi Rutanen</a></span></p> 
+
+            </div>
+
+        </div>
+        <section>
+            <div class="scroll text1">
+                <div>
+                    <span>Feeling Lazy Today? Just type in something and let your A.I. friend do the rest  ツ</span>
+                </div>
+                <div>
+                    <span>Feeling Lazy Today? Just type in something and let your A.I. friend do the rest  ツ</span>
+                </div>
+            </div>
+            
+        </section>
+
+        <div class = "small-container" id = "posterMaker">
+            <div class="inputDiv">
+                <input id="input" type="text" placeholder="What's in your mind?">
+            </div>
+            
+            <button onclick="getImageForInput()" id="make-poster-button">Make Poster</button>
+            <div id="canvasDiv"></div>
+            <button onclick="shuffleStyle()" id="shuffle-style-button">Change Style</button>
+            <button onclick="savePoster()" id="save-poster-button">Save</button>
+
+        </div>
+
+        <section>
+            <div class="scroll text1">
+                <div>
+                    <span>Feeling Lazy Today? Just type in something and let your A.I. friend do the rest  ツ</span>
+                </div>
+                <div>
+                    <span>Feeling Lazy Today? Just type in something and let your A.I. friend do the rest  ツ</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+    
+    
+    
+    <!-- create a div for p5 canvas -->
+ 
+    
+    
 </body>
 </html>
