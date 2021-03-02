@@ -4,11 +4,11 @@
 //a poser generator that makes the poster for you just by inputing a text
 //using deepai API https://deepai.org/machine-learning-model/text2img
 
-//PImage to_save = get( 20, 30, 100, 200 ); // Grab an image of a 100x200 rectangle at (20,30).
-//to_save.save("saved_name.png");
+
 
 
 //setting up the API
+
 deepai.setApiKey('a3e18daf-f66b-49c4-867e-ad3c529d1fc8');
 async function getImage(textInput) {
     var resp = await deepai.callStandardApi("text2img", {
@@ -19,60 +19,37 @@ async function getImage(textInput) {
 }
 
 var myText; //input text
-var input;
+
 var inputLength = 200;
 var inputX = 10 ; //x postiton of input
 var inputY = 100//y postiton of input;
 
-var button;
-var shuffleButton;
+
 
 var img, imgX, imgY;
 
 var mode = 0;
-var saveImage;
 
 
 async function setup(){
     // set up canvas
-    createCanvas(1000,850);
-    background(255);
-    //intro
-    push();
-     fill(0);
-     textSize(30);
-     textStyle(BOLD);
-     textAlign(LEFT,TOP);
-     text("Feeling Lazy Today? \nJust type something and let your AI friend do the rest",10,10);
-     textSize(12);
-     fill(10);
-     textStyle(NORMAL);
-     text("This website allows you to make a poster just by inputing some text, with the help of AI generated pictures, using DeepAI API.\n\nProject by Kiko Chen \nSpecial thanks to Igor Davydychev & Eevi Rutanen",10,700,200);
-    pop();
+    var canvas = createCanvas(360,500);
+     // Move the canvas so it’s inside our <div id="canvasDiv">.
+    canvas.parent('canvasDiv');
+    background(250);
+ 
     
 
-    // text input
-    input = createInput("what's in your mind?");
-    input.position(inputX,inputY);
-    input.size(inputLength);
+  
+
+    var myText = document.getElementById("input").value;
     
-    // button
-    button = createButton("make a poster");
-    button.position(10,inputY+30);
-    button.mousePressed(getImageForInput);
-    // shuffle button
-    shuffleButton = createButton("shuffle style");
-    shuffleButton.position(10,inputY+60);
-    shuffleButton.mousePressed(shuffleStyle);
+  
     
     // image postion
-    imgX = inputX + inputLength + 20;
-    imgY = inputY;
+    imgX = 0;
+    imgY = 0;
 
-   
-    
-    //save
-    saveImage = createGraphics(360,500);
 }
 
 function draw(){
@@ -81,13 +58,7 @@ function draw(){
     
 }
 
-function savePicture(){
-   
-        var p = get(imgX, imgY, 360, 500);
-        saveImage.image(p,0,0);
-        save(saveImage, myText+".png");
-    
-}
+
 
 
 function displayImage() {
@@ -99,17 +70,14 @@ function displayImage() {
 
 async function getImageForInput() {
     //background(255);
-    fill(0);
-    text("Loading", imgX, imgY+10);
-    var inputValue = input.value();
-    myText = inputValue;
+    fill(20);
+    text("Loading", width/2-8, height/2);
+    
+    myText = document.getElementById("input").value;
     var image_url = await getImage(myText);
     img = loadImage(image_url, displayImage);
      
-    // download button
-    button = createButton("download");
-    button.position(imgX,imgY+500+10);
-    button.mousePressed(savePicture);
+  
 }
 
 function style0() {
@@ -126,15 +94,12 @@ function style0() {
     // caption
     textSize(14);
     textAlign(LEFT,TOP);
-    text("Made by you and AI", imgX, imgY+470);
+    text("Made by you and A.I.", imgX, imgY+470);
     
 }
 
 function shuffleStyle(){
-      background(255);
-      
-   
-    
+    background(255);
     switch(mode) {
         case 0:
             style0();
@@ -151,18 +116,7 @@ function shuffleStyle(){
     if ( mode > 2) {
         mode=0
     }
-    //intro
-    push();
-     fill(0);
-     textSize(30);
-     textStyle(BOLD);
-     textAlign(LEFT,TOP);
-     text("Feeling Lazy Today? \nJust type something and let your AI friend do the rest",10,10);
-     textSize(12);
-     fill(10);
-     textStyle(NORMAL);
-     text("This website allows you to make a poster just by inputing some text, with the help of AI generated pictures, using DeepAI API.\n\nProject by Kiko Chen \nSpecial thanks to Igor Davydychev & Eevi Rutanen",10,700,200);
-    pop();
+  
     
 }
 
@@ -173,7 +127,7 @@ function style1(){
     for (let i = 0; i < 16; i++) {
    push();
     fill(255);
-    textSize(60);
+    textSize(50);
     textAlign(LEFT,BASELINE);
     textStyle(NORMAL);
     translate(random(imgX-100,imgX+360), random(imgY-200,imgY+500));
@@ -187,7 +141,7 @@ function style1(){
     textSize(14);
     fill(255,0,0);
     textAlign(LEFT,TOP);
-    text("Made by you and AI", imgX, imgY+470);
+    text("Made by you and A.I", imgX, imgY+470);
     
 }
 
@@ -205,8 +159,12 @@ function style2(){
     // caption
     textSize(14);
     textAlign(LEFT,TOP);
-    text("Made by you and AI", imgX, imgY+470);
+    text("Made you you and A.I.", imgX, imgY+470);
     
+}
+
+function savePoster(){
+    save(myText);
 }
  
 
